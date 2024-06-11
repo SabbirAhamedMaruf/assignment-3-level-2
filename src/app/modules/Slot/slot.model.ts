@@ -4,19 +4,19 @@ import { Slot } from './slot.interface';
 
 const SlotScheama = new Schema<Slot>({
     service: {
-        type: String, //TODO: reference of the specific service
-        required: true
+        type: Schema.Types.ObjectId, 
+        required: true,
     },
     date: {
-        type: String,
+        type: Date,
         required: true
     },
     startTime: {
-        type: String,
+        type: Date,
         required: true
     },
     endTime: {
-        type: String,
+        type: Date,
         required: true
     },
     isBooked: {

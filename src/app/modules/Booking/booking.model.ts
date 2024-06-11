@@ -6,15 +6,15 @@ import { VehicleTypesData } from './booking.constants';
 const BookingSchema = new Schema<Booking>(
     {
         customer: {
-            type: String, // TODO : reference of the specific user
+            type: Schema.Types.ObjectId, 
             required: true
         },
         service: {
-            type: String, // TODO : reference of the specific service
+            type: Schema.Types.ObjectId,
             required: true
         },
         slot: {
-            type: String, // TODO : reference of the specific slot
+            type: Schema.Types.ObjectId, 
             required: true
         },
         vehicleType: {

@@ -1,7 +1,9 @@
+import { Types } from "mongoose"
+
 export type Slot={
-    service:string,
-    date:string,
-    startTime:string,
-    endTime:string
+    service:Types.ObjectId,
+    date:Date,
+    startTime:Date,
+    endTime:Date
     isBooked:boolean,
 }
