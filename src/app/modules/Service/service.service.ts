@@ -14,3 +14,10 @@ export const getAllServiceHandler=()=>{
     const result = ServiceModel.find();
     return result;
 }
+
+export const updateSingleService=async(data:any,serviceId:string)=>{
+    const currentData : any = await ServiceModel.findOne({_id:serviceId});
+    const updatedData = {...currentData.toObject(),...data}
+    const result = ServiceModel.updateOne({_id:serviceId},updatedData);
+    return result;
+}
