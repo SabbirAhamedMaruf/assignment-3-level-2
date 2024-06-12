@@ -22,8 +22,7 @@ export const createToken = (req: tokenRequest, res: Response, next: NextFunction
 }
 
 export const verifyToken = (req: Request, res: Response, next: NextFunction) => {
-    const token = req.headers.authorization;
-    console.log("verify token",token);
+    const token = req.headers.authorization?.split(" ")[1]; // Removing Bearer from headers
     if(!token){
         res.status(401).send("Unauthorized access!");
     }else{

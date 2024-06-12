@@ -25,5 +25,5 @@ const SlotScheama = new Schema<Slot>({
     }
 });
 
-const SlotModel = model<Slot>('User', SlotScheama);
+const SlotModel = model<Slot>('Slot', SlotScheama);
 export default SlotModel;

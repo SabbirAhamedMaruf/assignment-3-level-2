@@ -23,7 +23,10 @@ const ServiceSchema = new Schema<Service>({
         type: Boolean,
         required: true
     }
+},
+{
+    timestamps:true
 });
 
-const ServiceModel = model<Service>('User', ServiceSchema);
+const ServiceModel = model<Service>('Service', ServiceSchema);
 export default ServiceModel;
