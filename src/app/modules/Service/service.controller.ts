@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getAllServiceHandler, getSingleServiceHanlder, serviceRegister, updateSingleService } from "./service.service";
+import { deleteSingleService, getAllServiceHandler, getSingleServiceHanlder, serviceRegister, updateSingleService } from "./service.service";
 
 export const createService=async(req:Request,res:Response)=>{
     try{
@@ -69,6 +69,25 @@ export const updateSingleServiceController=async(req:Request,res:Response)=>{
         res.status(500).json({
             success : false,
             message:"An error occured while updating service",
+        })
+    }
+}
+
+
+export const deleteSingleServiceController=async(req:Request,res:Response)=>{
+    try{
+        const serviceId = req.params.id;
+        const result = await deleteSingleService(serviceId)
+        res.status(200).json({
+            success : true,
+            statusCode:200,
+            message:"Service deleted successfully",
+            data:result
+        })
+    }catch(error){
+        res.status(500).json({
+            success : false,
+            message:"An error occured while deleting service",
         })
     }
 }

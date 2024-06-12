@@ -22,3 +22,9 @@ export const updateSingleService=async(data:any,serviceId:string)=>{
     const result = ServiceModel.findOne({_id:serviceId});
     return result;
 }
+
+export const deleteSingleService=(serviceId:string)=>{
+    const result = ServiceModel.findOne({_id:serviceId});
+    ServiceModel.deleteOne({_id:serviceId});
+    return result;
+}
