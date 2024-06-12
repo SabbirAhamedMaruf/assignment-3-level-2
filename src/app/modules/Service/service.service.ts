@@ -18,6 +18,7 @@ export const getAllServiceHandler=()=>{
 export const updateSingleService=async(data:any,serviceId:string)=>{
     const currentData : any = await ServiceModel.findOne({_id:serviceId});
     const updatedData = {...currentData.toObject(),...data}
-    const result = ServiceModel.updateOne({_id:serviceId},updatedData);
+    ServiceModel.updateOne({_id:serviceId},updatedData);
+    const result = ServiceModel.findOne({_id:serviceId});
     return result;
 }
