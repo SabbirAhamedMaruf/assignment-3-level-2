@@ -4,5 +4,7 @@ export type User={
     password:string,
     phone:string,
     role: "admin"|"user",
-    address:string
+    address:string,
+    createdAt:Date,
+    updatedAt:Date
 }

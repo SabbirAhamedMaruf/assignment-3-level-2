@@ -25,8 +25,12 @@ const UserSchema = new Schema<User>({
     address: {
         type: String,
         required: true
-    }
-});
+    },
+},
+{
+    timestamps:true
+}
+);
 
 const UserModel = model<User>('User', UserSchema);
 export default UserModel;
