@@ -1,14 +1,14 @@
 import mongoose from "mongoose";
-import { generateSlots } from "../../utils/slots";
 import ServiceModel from "../Service/service.model";
 import SlotModel from "./slot.model";
+import { generateSlots } from "../../utils/slots";
+
 
 export const createSlotService=async(data:any)=>{
     const startTime = data.startTime;
     const startTimeData = startTime?.split(":");
     const endTime = data.endTime;
     const endTimeData = endTime?.split(":");
-
     const currentServiceData = await ServiceModel.findOne({_id:data.service})
     const serviceDuration : any = currentServiceData?.duration;
     const slots = generateSlots(startTime, endTime, serviceDuration)
