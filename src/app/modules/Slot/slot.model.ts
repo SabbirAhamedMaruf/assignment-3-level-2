@@ -8,22 +8,27 @@ const SlotScheama = new Schema<Slot>({
         required: true,
     },
     date: {
-        type: Date,
+        type: String,
         required: true
     },
     startTime: {
-        type: Date,
+        type: String,
         required: true
     },
     endTime: {
-        type: Date,
+        type: String,
         required: true
     },
     isBooked: {
-        type: Boolean,
-        required: true
+        type: String,
+        required: true,
+        enum: ["available","booked","canceled"]
     }
-});
+},
+{
+    timestamps:true
+}
+);
 
 const SlotModel = model<Slot>('Slot', SlotScheama);
 export default SlotModel;
